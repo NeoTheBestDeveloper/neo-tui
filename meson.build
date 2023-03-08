@@ -2,10 +2,11 @@ project('neo-tui', 'c',
   version: '0.0.0',
   default_options: [
     'warning_level=3',
-                      'c_std=gnu11',
-                      'buildtype=debug',
-                      'b_sanitize=address,undefined'
-    ])
+    'c_std=gnu11',
+    'buildtype=debug',
+    'b_sanitize=address,undefined',
+    'b_lundef=false'
+])
 
 subdir('src')
 incdir = include_directories('src/include')
