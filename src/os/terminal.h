@@ -5,5 +5,6 @@
 
 u16 get_term_width(void);
 u16 get_term_height(void);
+void clear_screen(void);
 
 #endif // !H_TERMINAL

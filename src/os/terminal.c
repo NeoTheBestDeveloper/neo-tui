@@ -4,13 +4,15 @@
 #include "terminal.h"
 
 u16 get_term_width(void) {
-  struct winsize win;
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &win);
-  return win.ws_col;
+    struct winsize win;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &win);
+    return win.ws_col;
 }
 
 u16 get_term_height(void) {
-  struct winsize win;
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &win);
-  return win.ws_row;
+    struct winsize win;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &win);
+    return win.ws_row;
 }
+
+void clear_screen(void) { write(STDOUT_FILENO, "\033[2J", 4); }

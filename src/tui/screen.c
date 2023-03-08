@@ -1,6 +1,4 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdnoreturn.h>
+#include <malloc.h>
 
 #include "../os/terminal.h"
 #include "_screen.h"
@@ -22,7 +20,7 @@ void screen_init(void) {
     screen->pixels = NULL;
 }
 
-noreturn void screen_end(void) {
+void screen_end(void) {
     Screen *screen = get_screen();
 
     if (screen->buffer) {
@@ -34,6 +32,4 @@ noreturn void screen_end(void) {
     if (screen->pixels) {
         free(screen->pixels);
     }
-
-    exit(EXIT_SUCCESS);
 }
